@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MadMaxPracticeTool")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d819a2bacab8f4b588ddbe89f932fa11db48189c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5103c6f5a4ff795a3253148abe26506e76d52631")]
 [assembly: System.Reflection.AssemblyProductAttribute("MadMaxPracticeTool")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MadMaxPracticeTool")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

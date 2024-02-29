@@ -30,6 +30,7 @@
         {
             tabControl1 = new TabControl();
             PlayerTab = new TabPage();
+            button1 = new Button();
             groupBox17 = new GroupBox();
             label31 = new Label();
             numericUpDown31 = new NumericUpDown();
@@ -79,6 +80,9 @@
             label20 = new Label();
             numericUpDown20 = new NumericUpDown();
             groupBox15 = new GroupBox();
+            numericUpDown1 = new NumericUpDown();
+            numericUpDown34 = new NumericUpDown();
+            label34 = new Label();
             numericUpDown10 = new NumericUpDown();
             label10 = new Label();
             numericUpDown9 = new NumericUpDown();
@@ -98,7 +102,6 @@
             numericUpDown2 = new NumericUpDown();
             label2 = new Label();
             label1 = new Label();
-            numericUpDown1 = new NumericUpDown();
             StoryMissionsTab = new TabPage();
             groupBox14 = new GroupBox();
             checkedListBox14 = new CheckedListBox();
@@ -134,6 +137,7 @@
             MaxUpgradesTab = new TabPage();
             GarageUpgradesTab = new TabPage();
             SettingsTab = new TabPage();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             tabControl1.SuspendLayout();
             PlayerTab.SuspendLayout();
             groupBox17.SuspendLayout();
@@ -162,6 +166,8 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown19).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown20).BeginInit();
             groupBox15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown34).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown8).BeginInit();
@@ -171,7 +177,6 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             StoryMissionsTab.SuspendLayout();
             groupBox14.SuspendLayout();
             groupBox13.SuspendLayout();
@@ -208,6 +213,7 @@
             // 
             // PlayerTab
             // 
+            PlayerTab.Controls.Add(button1);
             PlayerTab.Controls.Add(groupBox17);
             PlayerTab.Controls.Add(groupBox16);
             PlayerTab.Controls.Add(groupBox15);
@@ -219,6 +225,18 @@
             PlayerTab.Text = "Player";
             PlayerTab.UseVisualStyleBackColor = true;
             PlayerTab.Click += tabPage1_Click;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom;
+            button1.Font = new Font("Courier New", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(881, 1152);
+            button1.Name = "button1";
+            button1.Size = new Size(600, 64);
+            button1.TabIndex = 3;
+            button1.Text = "SET\r\n";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // groupBox17
             // 
@@ -518,7 +536,7 @@
             groupBox16.Controls.Add(label19);
             groupBox16.Controls.Add(label20);
             groupBox16.Controls.Add(numericUpDown20);
-            groupBox16.Location = new Point(22, 250);
+            groupBox16.Location = new Point(22, 315);
             groupBox16.Name = "groupBox16";
             groupBox16.Size = new Size(597, 191);
             groupBox16.TabIndex = 1;
@@ -656,6 +674,9 @@
             // 
             // groupBox15
             // 
+            groupBox15.Controls.Add(numericUpDown1);
+            groupBox15.Controls.Add(numericUpDown34);
+            groupBox15.Controls.Add(label34);
             groupBox15.Controls.Add(numericUpDown10);
             groupBox15.Controls.Add(label10);
             groupBox15.Controls.Add(numericUpDown9);
@@ -675,14 +696,37 @@
             groupBox15.Controls.Add(numericUpDown2);
             groupBox15.Controls.Add(label2);
             groupBox15.Controls.Add(label1);
-            groupBox15.Controls.Add(numericUpDown1);
             groupBox15.Location = new Point(22, 17);
             groupBox15.Name = "groupBox15";
-            groupBox15.Size = new Size(693, 227);
+            groupBox15.Size = new Size(693, 270);
             groupBox15.TabIndex = 0;
             groupBox15.TabStop = false;
             groupBox15.Text = "HUD Elements";
             groupBox15.Enter += groupBox15_Enter;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(178, 21);
+            numericUpDown1.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(121, 31);
+            numericUpDown1.TabIndex = 4;
+            // 
+            // numericUpDown34
+            // 
+            numericUpDown34.Location = new Point(178, 225);
+            numericUpDown34.Name = "numericUpDown34";
+            numericUpDown34.Size = new Size(121, 31);
+            numericUpDown34.TabIndex = 21;
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Location = new Point(6, 231);
+            label34.Name = "label34";
+            label34.Size = new Size(119, 25);
+            label34.TabIndex = 20;
+            label34.Text = "Current Scrap";
             // 
             // numericUpDown10
             // 
@@ -768,7 +812,7 @@
             // 
             numericUpDown5.Location = new Point(178, 183);
             numericUpDown5.Name = "numericUpDown5";
-            numericUpDown5.Size = new Size(95, 31);
+            numericUpDown5.Size = new Size(121, 31);
             numericUpDown5.TabIndex = 9;
             // 
             // label5
@@ -784,7 +828,7 @@
             // 
             numericUpDown4.Location = new Point(178, 140);
             numericUpDown4.Name = "numericUpDown4";
-            numericUpDown4.Size = new Size(95, 31);
+            numericUpDown4.Size = new Size(121, 31);
             numericUpDown4.TabIndex = 7;
             // 
             // label4
@@ -800,7 +844,7 @@
             // 
             numericUpDown3.Location = new Point(178, 101);
             numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(95, 31);
+            numericUpDown3.Size = new Size(121, 31);
             numericUpDown3.TabIndex = 5;
             // 
             // label3
@@ -816,7 +860,7 @@
             // 
             numericUpDown2.Location = new Point(178, 62);
             numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(95, 31);
+            numericUpDown2.Size = new Size(121, 31);
             numericUpDown2.TabIndex = 3;
             // 
             // label2
@@ -838,13 +882,6 @@
             label1.TabIndex = 1;
             label1.Text = "Current Health:";
             label1.Click += label1_Click_1;
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(178, 25);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(95, 31);
-            numericUpDown1.TabIndex = 0;
             // 
             // StoryMissionsTab
             // 
@@ -1195,6 +1232,10 @@
             SettingsTab.Text = "Settings";
             SettingsTab.UseVisualStyleBackColor = true;
             // 
+            // backgroundWorker1
+            // 
+            backgroundWorker1.DoWork += backgroundWorker1_DoWork;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -1203,6 +1244,7 @@
             Controls.Add(tabControl1);
             Name = "Form1";
             Text = "Mad Max Practice Tool";
+            Load += Form1_Load;
             tabControl1.ResumeLayout(false);
             PlayerTab.ResumeLayout(false);
             groupBox17.ResumeLayout(false);
@@ -1234,6 +1276,8 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown20).EndInit();
             groupBox15.ResumeLayout(false);
             groupBox15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown34).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown10).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown9).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown8).EndInit();
@@ -1243,7 +1287,6 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             StoryMissionsTab.ResumeLayout(false);
             groupBox14.ResumeLayout(false);
             groupBox13.ResumeLayout(false);
@@ -1303,7 +1346,6 @@
         private CheckedListBox checkedListBox13;
         private GroupBox groupBox15;
         private Label label1;
-        private NumericUpDown numericUpDown1;
         private NumericUpDown numericUpDown2;
         private Label label2;
         private NumericUpDown numericUpDown4;
@@ -1370,5 +1412,10 @@
         private NumericUpDown numericUpDown32;
         private Label label33;
         private NumericUpDown numericUpDown33;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private NumericUpDown numericUpDown34;
+        private Label label34;
+        private Button button1;
+        private NumericUpDown numericUpDown1;
     }
 }

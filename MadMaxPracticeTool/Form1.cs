@@ -4,14 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using Memory;
 
 namespace MadMaxPracticeTool
 {
+
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        decimal currentPlayerHealth = 2000;
+        decimal maxPlayerHealth = 2000;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //Initiallize values
+
+
+            if (!backgroundWorker1.IsBusy) //if background worker is not busy
+            {
+                backgroundWorker1.RunWorkerAsync(); //run the background worker
+            }
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -83,20 +100,66 @@ namespace MadMaxPracticeTool
         {
 
         }
-    }
 
-    /*class CE_Program
-    {
-        static void Main(string[] args) 
+        //Create Memory Object
+        public Mem m = new Mem();
+        public int pID = 0;
+
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            Process[] processes = Process.GetProcessesByName("MadMax");
-            if(processes.Length > 0 )
+            bool firstRun = true;
+
+            while (true)
             {
-                using (CheatEngine.Memory memory = new CheatEngine.Memory(processes[0]))
+                pID = m.GetProcIdFromName("MadMax"); //Get the process ID from the game              
+                if (pID <= 0 || !m.OpenProcess(pID))
+                {
+                    firstRun = true;
+                    continue;
+                }
+
+
+                if (firstRun)
+                {
+                    currentPlayerHealth = maxPlayerHealth;
+                    numericUpDown1.Text = currentPlayerHealth.ToString();
+
+                    firstRun = false;
+                }
+
+                //get max health value
+
+
+                //set max health value in current health value text box
+
+
+
+                //do code
+
+                //Player Tab
+
+                if (Form.ActiveForm == null)
+                {
+                    currentPlayerHealth = m.ReadMemory<decimal>("base+0x017F5228,0x20,0x1F0,0xC80,0x30,0x0,0x1C");
+                    numericUpDown1.Value = currentPlayerHealth;
+                }
+
+                //Story Missions Tab
+                if (checkedListBox1.GetItemChecked(0))
                 {
 
                 }
             }
         }
-    }*/
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (pID <= 0 || !m.OpenProcess(pID))
+            {
+                return;
+            }
+
+            m.WriteMemory("base+0x017F5228,0x20,0x1F0,0xC80,0x30,0x0,0x1C", "float", numericUpDown1.Value.ToString()); //set health to value in health label
+        }
+    }
 }
