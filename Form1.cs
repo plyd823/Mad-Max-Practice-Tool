@@ -115,9 +115,12 @@ namespace MadMaxPracticeTool
                 if (pID <= 0 || !m.OpenProcess(pID))
                 {
                     firstRun = true;
+                    SetUndetected();
+
                     continue;
                 }
 
+                SetDetected();
 
                 if (firstRun)
                 {
@@ -126,15 +129,6 @@ namespace MadMaxPracticeTool
 
                     firstRun = false;
                 }
-
-                //get max health value
-
-
-                //set max health value in current health value text box
-
-
-
-                //do code
 
                 //Player Tab
 
@@ -160,6 +154,18 @@ namespace MadMaxPracticeTool
             }
 
             m.WriteMemory("base+0x017F5228,0x20,0x1F0,0xC80,0x30,0x0,0x1C", "float", numericUpDown1.Value.ToString()); //set health to value in health label
+        }
+
+        private void SetUndetected()
+        {
+            label36.Text = "Undetected";
+            label36.ForeColor = Color.Red;
+        }
+
+        private void SetDetected()
+        {
+            label36.Text = "Detected";
+            label36.ForeColor = Color.Green;
         }
     }
 }

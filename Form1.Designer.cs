@@ -30,6 +30,7 @@
         {
             tabControl1 = new TabControl();
             PlayerTab = new TabPage();
+            label35 = new Label();
             button1 = new Button();
             groupBox17 = new GroupBox();
             label31 = new Label();
@@ -138,6 +139,7 @@
             GarageUpgradesTab = new TabPage();
             SettingsTab = new TabPage();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            label36 = new Label();
             tabControl1.SuspendLayout();
             PlayerTab.SuspendLayout();
             groupBox17.SuspendLayout();
@@ -213,6 +215,8 @@
             // 
             // PlayerTab
             // 
+            PlayerTab.Controls.Add(label36);
+            PlayerTab.Controls.Add(label35);
             PlayerTab.Controls.Add(button1);
             PlayerTab.Controls.Add(groupBox17);
             PlayerTab.Controls.Add(groupBox16);
@@ -225,6 +229,17 @@
             PlayerTab.Text = "Player";
             PlayerTab.UseVisualStyleBackColor = true;
             PlayerTab.Click += tabPage1_Click;
+            // 
+            // label35
+            // 
+            label35.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label35.AutoSize = true;
+            label35.Font = new Font("Courier New", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label35.Location = new Point(6, 1185);
+            label35.Name = "label35";
+            label35.Size = new Size(99, 31);
+            label35.TabIndex = 4;
+            label35.Text = "Game:";
             // 
             // button1
             // 
@@ -1236,6 +1251,18 @@
             // 
             backgroundWorker1.DoWork += backgroundWorker1_DoWork;
             // 
+            // label36
+            // 
+            label36.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label36.AutoSize = true;
+            label36.Font = new Font("Courier New", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label36.ForeColor = Color.Red;
+            label36.Location = new Point(111, 1189);
+            label36.Name = "label36";
+            label36.Size = new Size(152, 27);
+            label36.TabIndex = 5;
+            label36.Text = "Undetected";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -1247,6 +1274,7 @@
             Load += Form1_Load;
             tabControl1.ResumeLayout(false);
             PlayerTab.ResumeLayout(false);
+            PlayerTab.PerformLayout();
             groupBox17.ResumeLayout(false);
             groupBox17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown31).EndInit();
@@ -1417,5 +1445,7 @@
         private Label label34;
         private Button button1;
         private NumericUpDown numericUpDown1;
+        private Label label35;
+        private Label label36;
     }
 }
